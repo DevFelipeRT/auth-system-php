@@ -46,4 +46,4 @@ This project is licensed under the **MIT License**. See the [LICENSE](https://ch
 
 ## Disclaimer
 
-**Please note:** This project is currently **under development**, and some features may still be incomplete. It is not recommended for use in production environments until further enhancements are implemented.
+**Please be advised that this project is intended solely for educational purposes and is currently under development. As such, some features may be incomplete. It is not recommended for use in production environments until further enhancements are implemented.
