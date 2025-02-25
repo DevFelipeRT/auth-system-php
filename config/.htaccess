@@ -1,0 +1,60 @@
+# Use mod_rewrite if available
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force HTTPS (Redirect all traffic to HTTPS)
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Remove "www" (Redirect www to non-www)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+    # Clean URLs (Remove .php/.html extensions)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.+)$ $1.php [L,QSA]
+
+    # Prevent direct access to sensitive files
+    RewriteRule ^(logs|config|database|includes|storage)/ - [F,L]
+
+    # Block access to .htaccess itself
+    <Files ".htaccess">
+        Order Allow,Deny
+        Deny from all
+    </Files>
+</IfModule>
+
+# Deny access to PHP error logs, configuration, and backup files
+<FilesMatch "(^\.|error_log|config\.php|backup.*\.sql)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+</IfModule>
+
+# Leverage browser caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+</IfModule>
+
+# Prevent hotlinking (Replace "example.com" with your domain)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https://(www\.)?example\.com/ [NC]
+    RewriteRule \.(jpg|jpeg|png|gif)$ - [F,L]
+</IfModule>

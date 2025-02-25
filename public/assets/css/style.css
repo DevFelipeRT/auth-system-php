@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-position: top;
+}
+
+.wrapper {
+  width: 420px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s;
+  color: white;
+  padding: 30px 40px;
+}
+
+.wrapper:hover {
+  box-shadow: 0 5px 15px 1px rgba(255, 255, 255, 0.1);
+}
+
+.wrapper h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.wrapper,
+.input-box {
+  position: relative;
+  margin-top: 20px;
+}
+
+.text,
+.voltar {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 3rem;
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  font-size: 16px;
+  color: white;
+  padding: 15px 55px 15px 15px;
+  transition: box-shadow 0.2s;
+  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.05);
+}
+
+.input-box input:hover {
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input-box input::placeholder {
+  color: white;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 24px;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.input-box label {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: white;
+  padding: 20px 45px 20px 20px;
+}
+
+.text-danger {
+  color: red;
+}
+
+.text-success {
+  color: green;
+}
+
+input#idbirthdate {
+  padding: 15px 20px;
+}
+
+.gender_wrapper {
+  margin-top: 20px;
+}
+
+.gender_wrapper_label {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: white;
+  padding: 0 0 0 20px;
+}
+
+.gender-input-box {
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  font-size: 16px;
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  transition: box-shadow 0.2s;
+  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.05);
+}
+
+.gender-input-box:hover {
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.genderinput input {
+  accent-color: white;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  margin-top: 5px;
+}
+
+.btn:hover {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.1);
+}
+
+.auth-link {
+  padding: 10px 18px;
+}
+
+.auth-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.text,
+.voltar {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: white;
+}
